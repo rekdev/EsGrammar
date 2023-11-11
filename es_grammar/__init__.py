@@ -1,2 +1,1 @@
-from .category import Category
-from .syllable import Syllable 
+from .syllable import Syllable

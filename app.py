@@ -1,7 +1,5 @@
-from es_grammar import Category
+from es_grammar import Syllable
 
-word = str(input("Ingrese una palabra: "))
+slb = Syllable("Cuautitlán")
 
-ct = Category(word)
-
-print(ct.categorize())
+print(slb.merge_vowels())
