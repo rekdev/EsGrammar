@@ -1,5 +1,5 @@
 from es_grammar import Syllable
 
-slb = Syllable("Cuautitlán")
+slb = Syllable("Aereo")
 
 print(slb.merge_vowels())
