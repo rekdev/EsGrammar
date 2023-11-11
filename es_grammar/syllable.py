@@ -1,4 +1,4 @@
-from .utils import has_vowel, has_consonant
+from .utils import has_vowel, has_consonant, is_consonant_group
 
 class Syllable:
     """
@@ -42,24 +42,40 @@ class Syllable:
 
     def get_syllables(self) -> list:
         """
-        Split a word in syllables and return syllable list.
+        Split a word in syllables and return its syllable list.
         """
-        
-        word = self.word
-        merged_vowels = self.merge_vowels(word)
+
+        merged_vowels = self.merge_vowels()
         merged_vowels_lenght = len(merged_vowels)
         syllables = []
         consonants_count = 0
         count = 0
 
         while count < merged_vowels_lenght:
-            syllable = ""
             tmp_slice = merged_vowels[count]
+            next_slice = merged_vowels[count + 1] if count + 1 < merged_vowels_lenght else ""
+            prev_slice = merged_vowels[count - 1] if count - 1 >= 0 else ""
 
             if has_consonant(tmp_slice):
                 consonants_count+=1
+            
+            # Check the syllable cases and make the syllable.
+            if consonants_count == 1 and has_vowel(next_slice):
+                tmp_slice+=next_slice
+                count+=1
+                consonants_count = 0
 
-            if syllable != "":
+            elif consonants_count == 1 and (has_consonant(next_slice) or next_slice == ""):
+                syllables_lenght = len(syllables)
+
+            elif consonants_count == 2 and is_consonant_group(prev_slice + tmp_slice) and has_vowel(next_slice):
+                tmp_slice = prev_slice + tmp_slice + next_slice
+                count+=1
+                consonants_count = 0
+
+            syllable = tmp_slice
+
+            if syllable != "" and not (len(syllable) == 1 and has_consonant(syllable)):
                 syllables.append(syllable)
 
             count+=1

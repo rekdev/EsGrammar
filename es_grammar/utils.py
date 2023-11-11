@@ -4,14 +4,14 @@ def has_vowel(x: str, strongers: bool = True) -> bool:
     """
 
     vowels = "aeiouáéíóúAEIOUÁÉÍÓÚ" if strongers else "aeiouAEIOU"
-    has_vowel = False
+    hs_vw = False
 
     for letter in x:
         for vowel in vowels:
             if vowel == letter:
-                has_vowel = True
+                hs_vw = True
 
-    return has_vowel
+    return hs_vw
 
 def has_consonant(x: str) -> bool:
     """
@@ -19,3 +19,16 @@ def has_consonant(x: str) -> bool:
     """
     
     return not has_vowel(x)
+
+def is_consonant_group(x: str) -> bool:
+    "check if the string is an indivisible consonant group."
+
+    consonant_groups = ["cl", "bl", "gl", "ll", "pl", "tl", "cr", "br", "dr", "tr", "ch", "ps", "gn"]
+    is_cs_gp = False
+    x = x.lower()
+
+    for consonant_group in consonant_groups:
+        if consonant_group == x:
+            is_cs_gp = True
+
+    return is_cs_gp

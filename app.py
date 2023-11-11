@@ -1,5 +1,5 @@
 from es_grammar import Syllable
 
-slb = Syllable("Aereo")
+slb = Syllable("Atomo")
 
-print(slb.merge_vowels())
+print(slb.get_syllables())
