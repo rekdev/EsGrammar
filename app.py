@@ -1,5 +1,6 @@
 from esgrammar import Syllable
 
-slb = Syllable("Experimentar")
+word = str(input("Input a word: "))
+slb = Syllable(word)
 
 print(slb.get_syllables())
