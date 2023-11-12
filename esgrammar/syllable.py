@@ -12,7 +12,6 @@ class Syllable:
         """
         Take word and merge its vowels if not contains strong cases.
         """
-
         word = self.word
         word_lenght = len(word)
         count = 0
@@ -44,7 +43,6 @@ class Syllable:
         """
         Split a word in syllables and return its syllable list.
         """
-
         merged_vowels = self.merge_vowels()
         merged_vowels_lenght = len(merged_vowels)
         syllables = []
@@ -60,12 +58,17 @@ class Syllable:
                 consonants_count+=1
             
             # Check the syllable cases and make the syllable.
-            if consonants_count == 1 and has_vowel(next_slice):
+            if consonants_count == 1  and has_vowel(next_slice):
                 tmp_slice+=next_slice
                 count+=1
                 consonants_count = 0
 
-            elif consonants_count == 1 and not is_consonant_group(tmp_slice + next_slice) and (has_consonant(next_slice) or next_slice == ""):
+            elif (
+                consonants_count == 1 
+                and not is_consonant_group(tmp_slice + next_slice) 
+                and (has_consonant(next_slice) or next_slice == "")
+                ):
+
                 syllables_lenght = len(syllables)
 
                 if syllables_lenght > 0:
@@ -73,7 +76,12 @@ class Syllable:
 
                 consonants_count = 0
 
-            elif consonants_count == 2 and is_consonant_group(prev_slice + tmp_slice) and has_vowel(next_slice):
+            elif (
+                consonants_count == 2 
+                and is_consonant_group(prev_slice + tmp_slice) 
+                and has_vowel(next_slice)
+                ):
+
                 tmp_slice = prev_slice + tmp_slice + next_slice
                 count+=1
                 consonants_count = 0
@@ -81,7 +89,12 @@ class Syllable:
             # Assing temporal slice into syllable var and append the result.
             syllable = tmp_slice
 
-            if syllable != "" and not (len(syllable) == 1 and has_consonant(syllable)):
+            if (
+                syllable != "" 
+                and not (len(syllable) == 1 
+                and has_consonant(syllable))
+                ):
+
                 syllables.append(syllable)
 
             count+=1
