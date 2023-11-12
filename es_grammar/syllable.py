@@ -65,14 +65,20 @@ class Syllable:
                 count+=1
                 consonants_count = 0
 
-            elif consonants_count == 1 and (has_consonant(next_slice) or next_slice == ""):
+            elif consonants_count == 1 and not is_consonant_group(tmp_slice + next_slice) and (has_consonant(next_slice) or next_slice == ""):
                 syllables_lenght = len(syllables)
+
+                if syllables_lenght > 0:
+                    syllables[syllables_lenght - 1]+=tmp_slice
+
+                consonants_count = 0
 
             elif consonants_count == 2 and is_consonant_group(prev_slice + tmp_slice) and has_vowel(next_slice):
                 tmp_slice = prev_slice + tmp_slice + next_slice
                 count+=1
                 consonants_count = 0
 
+            # Assing temporal slice into syllable var and append the result.
             syllable = tmp_slice
 
             if syllable != "" and not (len(syllable) == 1 and has_consonant(syllable)):

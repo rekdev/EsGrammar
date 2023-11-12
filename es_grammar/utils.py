@@ -23,7 +23,7 @@ def has_consonant(x: str) -> bool:
 def is_consonant_group(x: str) -> bool:
     "check if the string is an indivisible consonant group."
 
-    consonant_groups = ["cl", "bl", "gl", "ll", "pl", "tl", "cr", "br", "dr", "tr", "ch", "ps", "gn"]
+    consonant_groups = ["cl", "bl", "gl", "ll", "pl", "tl", "cr", "br", "dr", "fr", "tr", "ch", "th", "ps", "gn", "rr"]
     is_cs_gp = False
     x = x.lower()
 

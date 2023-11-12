@@ -1,5 +1,5 @@
 from es_grammar import Syllable
 
-slb = Syllable("Atomo")
+slb = Syllable("Cardenas")
 
 print(slb.get_syllables())
