@@ -1,4 +1,4 @@
-from .utils import has_vowel, has_consonant, is_consonant_group
+from .utils import has_vowel, has_consonant, is_consonant_group, is_open_vowel, is_closed_vowel
 
 class Syllable:
     """
@@ -8,9 +8,15 @@ class Syllable:
     def __init__(self, word: str):
         self.word = word
 
+    def is_diphthong(self, word):
+        pass
+
+    def is_triphthong(self, word):
+        pass
+
     def merge_vowels(self) -> list:
         """
-        Take word and merge its vowels if not contains strong cases.
+        Take word and merge its vowels if not contains strong cases (hiatos).
         """
         word = self.word
         word_lenght = len(word)
@@ -27,7 +33,13 @@ class Syllable:
                 merged_vowels.append(letter + next_letter + next_letter2)
                 count+=2
 
-            elif vowel(letter) and vowel(next_letter):
+            elif (
+                vowel(letter) 
+                and vowel(next_letter)
+                and not (is_open_vowel(letter) and is_open_vowel(next_letter)) 
+                and not (is_closed_vowel(letter) and is_closed_vowel(next_letter))
+                ):
+
                 merged_vowels.append(letter + next_letter)
                 count+=1
 
