@@ -7,11 +7,28 @@ class Syllable:
 
     def __init__(self, word: str):
         self.word = word
+        # Vowel objects
+        self.vowels = "aeiouáéíóú"
+        self.accented_vowels = "áéíóú"
+        self.open_vowels = "aeoáéó"
+        self.closed_vowels = "iuíú" 
 
-    def is_diphthong(self, word):
-        pass
 
-    def is_triphthong(self, word):
+    def is_diphthong(self, x: str) -> bool:
+        """
+        Check if text slice is a diphthong.
+        """
+        vowels = self.vowels
+        accented_vowels = self.accented_vowels
+        open_vowels = self.open_vowels
+        closed_vowels = self.closed_vowels
+
+        
+
+        return False
+
+
+    def is_triphthong(self, x: str) -> bool:
         pass
 
     def merge_vowels(self) -> list:
