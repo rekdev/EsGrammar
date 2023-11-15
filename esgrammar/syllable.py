@@ -1,4 +1,5 @@
-from .utils import has_vowel, has_consonant, is_consonant_group, is_open_vowel, is_closed_vowel
+from .utils import has_vowel, has_consonant, is_consonant_group
+
 
 class Syllable:
     """
@@ -7,29 +8,59 @@ class Syllable:
 
     def __init__(self, word: str):
         self.word = word
-        # Vowel objects
         self.vowels = "aeiouáéíóú"
         self.accented_vowels = "áéíóú"
         self.open_vowels = "aeoáéó"
-        self.closed_vowels = "iuíú" 
+        self.closed_vowels = "iuíú"
 
+    def is_triphthong(self, x: str) -> bool:
+        """
+        Check if text slice is a triphthong.
+        """
+        open_vowels = self.open_vowels
+        closed_vowels = self.closed_vowels
+
+        is_tp = False
+
+        if len(x) == 3:
+            if ((
+                x[0] in closed_vowels
+                and x[1] in open_vowels
+                and x[2] in closed_vowels
+            )
+                or (
+                x[0] in open_vowels
+                and x[1] in closed_vowels
+                and x[2] in open_vowels
+            )):
+                is_tp = True
+
+        return is_tp
 
     def is_diphthong(self, x: str) -> bool:
         """
         Check if text slice is a diphthong.
         """
-        vowels = self.vowels
-        accented_vowels = self.accented_vowels
         open_vowels = self.open_vowels
         closed_vowels = self.closed_vowels
+        accented_vowels = self.accented_vowels
 
-        
+        is_dp = False
 
-        return False
+        if len(x) == 2:
+            if ((
+                x[0] in open_vowels
+                and x[1] in closed_vowels
+            )
+                or (
+                x[0] in closed_vowels
+                and x[1] in open_vowels
+            )
+                    and not (x[0] in accented_vowels or x[1] in accented_vowels)
+            ):
+                is_dp = True
 
-
-    def is_triphthong(self, x: str) -> bool:
-        pass
+        return is_dp
 
     def merge_vowels(self) -> list:
         """
@@ -39,34 +70,26 @@ class Syllable:
         word_lenght = len(word)
         count = 0
         merged_vowels = []
-        vowel = lambda x: has_vowel(x, False)
 
         while count < word_lenght:
             letter = word[count]
             next_letter = word[count + 1] if count + 1 < word_lenght else ""
             next_letter2 = word[count + 2] if count + 2 < word_lenght else ""
 
-            if vowel(letter) and vowel(next_letter) and vowel(next_letter2):
+            if self.is_triphthong(letter + next_letter + next_letter2):
                 merged_vowels.append(letter + next_letter + next_letter2)
-                count+=2
+                count += 2
 
-            elif (
-                vowel(letter) 
-                and vowel(next_letter)
-                and not (is_open_vowel(letter) and is_open_vowel(next_letter)) 
-                and not (is_closed_vowel(letter) and is_closed_vowel(next_letter))
-                ):
-
+            elif self.is_diphthong(letter + next_letter):
                 merged_vowels.append(letter + next_letter)
-                count+=1
+                count += 1
 
             else:
                 merged_vowels.append(letter)
 
-            count+=1
+            count += 1
 
-        return merged_vowels 
-
+        return merged_vowels
 
     def get_syllables(self) -> list:
         """
@@ -80,52 +103,53 @@ class Syllable:
 
         while count < merged_vowels_lenght:
             tmp_slice = merged_vowels[count]
-            next_slice = merged_vowels[count + 1] if count + 1 < merged_vowels_lenght else ""
+            next_slice = merged_vowels[count + 1] if count + \
+                1 < merged_vowels_lenght else ""
             prev_slice = merged_vowels[count - 1] if count - 1 >= 0 else ""
 
             if has_consonant(tmp_slice):
-                consonants_count+=1
-            
+                consonants_count += 1
+
             # Check the syllable cases and make the syllable.
-            if consonants_count == 1  and has_vowel(next_slice):
-                tmp_slice+=next_slice
-                count+=1
+            if consonants_count == 1 and has_vowel(next_slice):
+                tmp_slice += next_slice
+                count += 1
                 consonants_count = 0
 
             elif (
-                consonants_count == 1 
-                and not is_consonant_group(tmp_slice + next_slice) 
+                consonants_count == 1
+                and not is_consonant_group(tmp_slice + next_slice)
                 and (has_consonant(next_slice) or next_slice == "")
-                ):
+            ):
 
                 syllables_lenght = len(syllables)
 
                 if syllables_lenght > 0:
-                    syllables[syllables_lenght - 1]+=tmp_slice
+                    syllables[syllables_lenght - 1] += tmp_slice
 
                 consonants_count = 0
 
             elif (
-                consonants_count == 2 
-                and is_consonant_group(prev_slice + tmp_slice) 
+                consonants_count == 2
+                and is_consonant_group(prev_slice + tmp_slice)
                 and has_vowel(next_slice)
-                ):
+            ):
 
                 tmp_slice = prev_slice + tmp_slice + next_slice
-                count+=1
+                count += 1
                 consonants_count = 0
 
             # Assing temporal slice into syllable var and append the result.
             syllable = tmp_slice
 
             if (
-                syllable != "" 
-                and not (len(syllable) == 1 
-                and has_consonant(syllable))
-                ):
+                syllable != ""
+                and not (len(syllable) == 1
+                         and has_consonant(syllable))
+            ):
 
                 syllables.append(syllable)
 
-            count+=1
+            count += 1
 
         return syllables
