@@ -1,9 +1,9 @@
-def has_vowel(x: str, strongers: bool = True) -> bool:
+def has_vowel(x: str) -> bool:
     """
     Check if a text slice contains vowels.
     """
 
-    vowels = "aeiouáéíóú" if strongers else "aeiou"
+    vowels = "aeiouáéíóú"
     hs_vw = False
     x = x.lower()
 
@@ -25,7 +25,7 @@ def has_consonant(x: str) -> bool:
 def is_consonant_group(x: str) -> bool:
     "check if the string is an indivisible consonant group."
     consonant_groups = ["cl", "bl", "gl", "ll", "pl", "tl", "cr",
-                        "br", "dr", "fr", "pr", "tr", "ch", "th", "ps", "gn", "rr"]
+                        "br", "dr", "fr", "pr", "tr", "ch", "ps", "gn", "rr"]
     is_cs_gp = False
     x = x.lower()
 

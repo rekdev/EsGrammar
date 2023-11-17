@@ -19,6 +19,7 @@ class Syllable:
         """
         open_vowels = self.open_vowels
         closed_vowels = self.closed_vowels
+        x = x.lower()
 
         is_tp = False
 
@@ -43,6 +44,7 @@ class Syllable:
         open_vowels = self.open_vowels
         closed_vowels = self.closed_vowels
         accented_vowels = self.accented_vowels
+        x = x.lower()
 
         is_dp = False
 
