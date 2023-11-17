@@ -23,7 +23,7 @@ class Syllable:
         is_tp = False
 
         if len(x) == 3:
-            if ((
+            is_tp = ((
                 x[0] in closed_vowels
                 and x[1] in open_vowels
                 and x[2] in closed_vowels
@@ -32,8 +32,7 @@ class Syllable:
                 x[0] in open_vowels
                 and x[1] in closed_vowels
                 and x[2] in open_vowels
-            )):
-                is_tp = True
+            ))
 
         return is_tp
 
@@ -48,7 +47,7 @@ class Syllable:
         is_dp = False
 
         if len(x) == 2:
-            if ((
+            is_dp = ((
                 x[0] in open_vowels
                 and x[1] in closed_vowels
             )
@@ -56,9 +55,8 @@ class Syllable:
                 x[0] in closed_vowels
                 and x[1] in open_vowels
             )
-                    and not (x[0] in accented_vowels or x[1] in accented_vowels)
-            ):
-                is_dp = True
+                and not (x[0] in accented_vowels or x[1] in accented_vowels)
+            )
 
         return is_dp
 
