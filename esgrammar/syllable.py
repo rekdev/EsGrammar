@@ -153,3 +153,8 @@ class Syllable:
             count += 1
 
         return syllables
+
+        def get_tone_syllable():
+            syllables = self.get_syllables()
+            
+            return ""
