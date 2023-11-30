@@ -8,3 +8,8 @@ version = "0.0.1"
 
 [tool.setuptools]
 packages = ["esgrammar"]
+
+[tool.pytest.ini_options]
+minversion = "7.4.3"
+addopts = "-ra -q"
+testpaths = ["tests"]
