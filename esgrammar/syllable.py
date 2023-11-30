@@ -1,6 +1,5 @@
 from .utils import has_vowel, has_consonant, is_consonant_group
 
-
 class Syllable:
     """
     This class contains varius methods from process words and get its syllables info.
@@ -49,14 +48,14 @@ class Syllable:
         is_dp = False
 
         if len(x) == 2:
-            is_dp = ((
+            is_dp = (((
                 x[0] in open_vowels
                 and x[1] in closed_vowels
             )
                 or (
                 x[0] in closed_vowels
                 and x[1] in open_vowels
-            )
+            ))
                 and not (x[0] in accented_vowels or x[1] in accented_vowels)
             )
 
@@ -155,6 +154,6 @@ class Syllable:
         return syllables
 
         def get_tone_syllable():
-            syllables = self.get_syllables()
-            
-            return ""
+            """
+            """
+            pass
