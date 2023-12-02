@@ -9,8 +9,26 @@ class Syllable:
         self.word = word
         self.vowels = "aeiouáéíóú"
         self.accented_vowels = "áéíóú"
-        self.open_vowels = "aeoáéó"
+        self.open_vowels = "aeoáéóü"
         self.closed_vowels = "iuíú"
+        self.umlauts = "ü"
+
+    def is_umlaut(self, x: str) -> bool:
+        """
+        Check if text slice is a umlaut.
+        """
+        umlauts = self.umlauts
+        vowels = self.vowels
+        is_uml = False
+        x = x.lower()
+
+        if len(x) == 2:
+            is_uml = (
+                x[0] in umlauts 
+                and x[1] in vowels
+            )
+
+        return is_uml
 
     def is_triphthong(self, x: str) -> bool:
         """
@@ -79,7 +97,7 @@ class Syllable:
                 merged_vowels.append(letter + next_letter + next_letter2)
                 count += 2
 
-            elif self.is_diphthong(letter + next_letter):
+            elif self.is_diphthong(letter + next_letter) or self.is_umlaut(letter + next_letter):
                 merged_vowels.append(letter + next_letter)
                 count += 1
 

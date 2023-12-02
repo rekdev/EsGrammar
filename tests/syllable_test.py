@@ -29,7 +29,9 @@ words = [
     "Gato",
     "Cabra",
     "Pollo",
-    "Eduardo"
+    "Eduardo",
+    "Pingüino",
+    "Vergüenza"
 ]
 words_syllables = [
     ["Ví", "o"],
@@ -60,7 +62,9 @@ words_syllables = [
     ["Ga", "to"],
     ["Ca", "bra"],
     ["Po", "llo"],
-    ["E", "duar", "do"]
+    ["E", "duar", "do"],
+    ["Pin", "güi", "no"],
+    ["Ver", "güen", "za"]
 ]
 
 

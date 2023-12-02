@@ -3,7 +3,7 @@ def has_vowel(x: str) -> bool:
     Check if a text slice contains vowels.
     """
 
-    vowels = "aeiouáéíóú"
+    vowels = "aeiouáéíóúü"
     hs_vw = False
     x = x.lower()
 
