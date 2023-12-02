@@ -31,7 +31,11 @@ words = [
     "Pollo",
     "Eduardo",
     "Pingüino",
-    "Vergüenza"
+    "Vergüenza",
+    "Águila",
+    "Guitarra",
+    "Gratuito",
+    "Constituís"
 ]
 words_syllables = [
     ["Ví", "o"],
@@ -64,7 +68,11 @@ words_syllables = [
     ["Po", "llo"],
     ["E", "duar", "do"],
     ["Pin", "güi", "no"],
-    ["Ver", "güen", "za"]
+    ["Ver", "güen", "za"],
+    ["Á", "gui", "la"],
+    ["Gui", "ta", "rra"],
+    ["Gra", "tui", "to"],
+    ["Cons", "ti", "tuís"]
 ]
 
 

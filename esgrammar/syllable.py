@@ -1,5 +1,6 @@
 from .utils import has_vowel, has_consonant, is_consonant_group
 
+
 class Syllable:
     """
     This class contains varius methods from process words and get its syllables info.
@@ -24,7 +25,7 @@ class Syllable:
 
         if len(x) == 2:
             is_uml = (
-                x[0] in umlauts 
+                x[0] in umlauts
                 and x[1] in vowels
             )
 
@@ -97,7 +98,11 @@ class Syllable:
                 merged_vowels.append(letter + next_letter + next_letter2)
                 count += 2
 
-            elif self.is_diphthong(letter + next_letter) or self.is_umlaut(letter + next_letter):
+            elif (
+                self.is_diphthong(letter + next_letter)
+                or self.is_umlaut(letter + next_letter)
+                or (letter in "uú" and next_letter in "ií")
+            ):
                 merged_vowels.append(letter + next_letter)
                 count += 1
 
@@ -174,4 +179,5 @@ class Syllable:
         def get_tone_syllable():
             """
             """
+
             pass
