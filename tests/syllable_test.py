@@ -82,7 +82,7 @@ def test_syllable():
     for i in range(0, words_lenght):
         slb = Syllable(words[i])
 
-        word_test = slb.get_syllables()
+        word_test = slb.get()
         word_syllable = words_syllables[i]
 
         assert word_test == word_syllable

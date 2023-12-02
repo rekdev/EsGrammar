@@ -10,9 +10,11 @@ class Syllable:
         self.word = word
         self.vowels = "aeiouáéíóú"
         self.accented_vowels = "áéíóú"
+        self.non_aceented_vowels = "aeiou"
         self.open_vowels = "aeoáéóü"
         self.closed_vowels = "iuíú"
         self.umlauts = "ü"
+        self.case_consonants = "ns"
 
     def is_umlaut(self, x: str) -> bool:
         """
@@ -80,7 +82,7 @@ class Syllable:
 
         return is_dp
 
-    def merge_vowels(self) -> list:
+    def merge(self) -> list:
         """
         Take word and merge its vowels if not contains strong cases (hiatos).
         """
@@ -113,11 +115,11 @@ class Syllable:
 
         return merged_vowels
 
-    def get_syllables(self) -> list:
+    def get(self) -> list:
         """
         Split a word in syllables and return its syllable list.
         """
-        merged_vowels = self.merge_vowels()
+        merged_vowels = self.merge()
         merged_vowels_lenght = len(merged_vowels)
         syllables = []
         consonants_count = 0
@@ -176,8 +178,40 @@ class Syllable:
 
         return syllables
 
-        def get_tone_syllable():
-            """
-            """
+    def get_tone_index(self) -> int:
+        """
+        Return index from tone syllable.
+        """
+        non_aceented_vowels = self.non_aceented_vowels
+        accented_vowels = self.accented_vowels
+        syllables = self.get()
+        case_consonants = self.case_consonants
+        tone_syllable_index = -1
 
-            pass
+        last_syllable = syllables[len(syllables) -
+                                  1] if len(syllables) - 1 >= 0 else ""
+        last_letter_in_last_syllable = last_syllable[len(
+            last_syllable) - 1] if len(last_syllable) - 1 >= 0 else ""
+
+        if (
+                last_letter_in_last_syllable in case_consonants
+                or last_letter_in_last_syllable in non_aceented_vowels
+        ):
+            tone_syllable_index = len(
+                syllables) - 2 if len(syllables) - 2 >= 0 else -1
+        else:
+            tone_syllable_index = len(
+                syllables) - 1 if len(syllables) - 1 >= 0 else -1
+
+        for i, syllable in enumerate(syllables):
+            syllable = syllable.lower()
+            for letter in syllable:
+                if letter in accented_vowels:
+                    tone_syllable_index = i
+
+        return tone_syllable_index
+
+    def get_tone(self) -> str:
+        """
+        """
+        return self.get()[self.get_tone_index()]
