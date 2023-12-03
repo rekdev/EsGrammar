@@ -23,7 +23,7 @@ def analyze(words: list) -> list:
             {
                 "syllables": slb.get(),
                 "vowels": gmr.get_vowels(),
-                "consonants": gmr.get_vowels(),
+                "consonants": gmr.get_consonants(),
                 "tone_syllable": slb.get_tone(),
                 "tone_syllable_index": slb.get_tone_index(),
                 "type": gmr.get_type()
