@@ -35,7 +35,8 @@ words = [
     "Águila",
     "Guitarra",
     "Gratuito",
-    "Constituís"
+    "Constituís",
+    "Computación"
 ]
 words_syllables = [
     ["Ví", "o"],
@@ -44,7 +45,7 @@ words_syllables = [
     ["Po", "e", "sí", "a"],
     ["Pe", "rí", "o", "do"],
     ["Sa", "ú", "co"],
-    ["Mur", "ci", "é", "la", "go"],
+    ["Mur", "cié", "la", "go"],
     ["Zo", "o", "lo", "gi", "co"],
     ["A", "é", "re", "o"],
     ["Le", "er"],
@@ -72,7 +73,8 @@ words_syllables = [
     ["Á", "gui", "la"],
     ["Gui", "ta", "rra"],
     ["Gra", "tui", "to"],
-    ["Cons", "ti", "tuís"]
+    ["Cons", "ti", "tuís"],
+    ["Com", "pu", "ta", "ción"]
 ]
 
 

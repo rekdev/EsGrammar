@@ -69,16 +69,16 @@ class Syllable:
         is_dp = False
 
         if len(x) == 2:
-            is_dp = (((
+            is_dp = ((
                 x[0] in open_vowels
                 and x[1] in closed_vowels
+                and not x[1] in accented_vowels
             )
                 or (
                 x[0] in closed_vowels
                 and x[1] in open_vowels
+                and not x[0] in accented_vowels
             ))
-                and not (x[0] in accented_vowels or x[1] in accented_vowels)
-            )
 
         return is_dp
 
