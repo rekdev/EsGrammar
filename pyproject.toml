@@ -5,6 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "esgrammar"
 version = "0.0.1"
+authors = [{name = 'Angel Cardenas', email = 'angel_cfz@proton.me'}]
+description = "Short python library for check varius grammar things in spanish text."
+license = {file = 'LICENSE'}
 
 [tool.setuptools]
 packages = ["esgrammar"]

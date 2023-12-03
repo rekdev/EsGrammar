@@ -1,11 +1,18 @@
+"""
+=========
+EsGrammar
+=========
+Short python library for check varius grammar things in spanish text.
+"""
+
 from .syllable import Syllable
 from .grammar import Grammar
 
-def analyze(words: str) -> list:
+
+def analyze(words: list) -> list:
     """
-    Analyze a word list splited by spaces.
+    Analyze a word list and return its gramatical info.
     """
-    words = words.split()
     words_analyzed = []
 
     for word in words:
@@ -15,10 +22,12 @@ def analyze(words: str) -> list:
         words_analyzed.append(
             {
                 "syllables": slb.get(),
+                "vowels": gmr.get_vowels(),
+                "consonants": gmr.get_vowels(),
                 "tone_syllable": slb.get_tone(),
                 "tone_syllable_index": slb.get_tone_index(),
                 "type": gmr.get_type()
             }
         )
-    
+
     return words_analyzed

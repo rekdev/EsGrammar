@@ -35,7 +35,7 @@ class Syllable:
 
     def is_triphthong(self, x: str) -> bool:
         """
-        Check if text slice is a triphthong.
+        Check if vowel text slice is a triphthong.
         """
         open_vowels = self.open_vowels
         closed_vowels = self.closed_vowels
@@ -59,7 +59,7 @@ class Syllable:
 
     def is_diphthong(self, x: str) -> bool:
         """
-        Check if text slice is a diphthong.
+        Check if vowel text slice is a diphthong.
         """
         open_vowels = self.open_vowels
         closed_vowels = self.closed_vowels
@@ -84,7 +84,7 @@ class Syllable:
 
     def merge(self) -> list:
         """
-        Take word and merge its vowels if not contains strong cases (hiatos).
+        Take word and merge its vowels in case of meet some characteristics.
         """
         word = self.word
         word_lenght = len(word)
