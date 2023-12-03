@@ -213,5 +213,6 @@ class Syllable:
 
     def get_tone(self) -> str:
         """
+        Return string tone syllable.
         """
         return self.get()[self.get_tone_index()]
