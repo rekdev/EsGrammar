@@ -32,7 +32,7 @@ class Word:
             next_letter = self.__word[i + 1] if i + 1 < word_len else ""
             next_two_letter = self.__word[i + 2] if i + 2 < word_len else ""
 
-            # Check if slice is a triphthong.
+            # Checks if slice is a triphthong.
             if ((
                 letter in self.__closed_vowels
                 and next_letter in self.__open_vowels
@@ -45,7 +45,7 @@ class Word:
                 merged_vowels.append(letter + next_letter + next_two_letter)
                 i += 2
 
-            # Check if slice is a diphthong or umlaut case.
+            # Checks if slice is a diphthong or umlaut case.
             elif ((
                 letter in self.__open_vowels
                 and next_letter in self.__closed_vowels
