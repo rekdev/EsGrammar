@@ -2,14 +2,32 @@ from .utils import has_consonants, has_vowels, is_consonant_group
 
 
 class Word:
+    """
+    This class provides core functionality of word grammar.
+
+    Attributes:
+        syllables (list): Word split into syllables.
+        tonic_syllable (str): Tonic syllable obtained based on Spanish accentuation rules.
+        tonic_syllable_index (int): Index of tonic syllable.
+        vowels (list): List of the all vowels.
+        consonants (list): List of the all consonants.
+        type (str | None): Grammatical classification based on Spanish accentuation rules.
+        value (str): Contains public access word attribute of the class.
+    """
     __vowels = "aeiouAEIOU"
-    __accented_vowels = "áéíóuÁÉÍÓÚ"
+    __accented_vowels = "áéíóúÁÉÍÓÚ"
     __closed_vowels = "iuIU"
     __open_vowels = "aeoAEO"
-    __umlauts = "üÜ"
+    __closed_vowels_accented = "iuIUíúÍÚ"
+    __open_vowels_accented = "aeoAEOáéóÁÉÓ"
+    __umlauts = "Ü"
     __case_consonants = "nsNS"
 
     def __init__(self, x: str):
+        """
+        Args:
+            x (str): Any word in spanish language.
+        """
         self.__word = x
         self.syllables = self.__get_syllables()
         self.tonic_syllable = self.__get_tonic_syllable()
@@ -17,10 +35,14 @@ class Word:
         self.vowels = self.__get_vowels()
         self.consonants = self.__get_consonants()
         self.type = self.__get_type()
+        self.value = self.__word
 
     def __get_syllables(self) -> list:
         """
-        Returns list with syllables of the word.
+        Split word by syllables, using spanish grammar rules.
+
+        Returns:
+            list: Syllable list.
         """
         merged_vowels = []
         word_len = len(self.__word)
@@ -34,13 +56,13 @@ class Word:
 
             # Checks if slice is a triphthong.
             if ((
-                letter in self.__closed_vowels
-                and next_letter in self.__open_vowels
-                and next_two_letter in self.__closed_vowels
+                letter in self.__closed_vowels_accented
+                and next_letter in self.__open_vowels_accented
+                and next_two_letter in self.__closed_vowels_accented
             ) or (
-                letter in self.__open_vowels
-                and next_letter in self.__closed_vowels
-                and next_two_letter in self.__open_vowels
+                letter in self.__open_vowels_accented
+                and next_letter in self.__closed_vowels_accented
+                and next_two_letter in self.__open_vowels_accented
             )):
                 merged_vowels.append(letter + next_letter + next_two_letter)
                 i += 2
@@ -54,8 +76,8 @@ class Word:
                 and next_letter in self.__open_vowels
             ) or (
                 letter in self.__umlauts
-                and letter in self.__vowels
-            ) or (letter in "uU" and next_letter in "iI") or (letter in "uU" and next_letter in "eE")):
+                and next_letter in self.__vowels
+            ) or (letter in "uU" and next_letter in "iI")):
                 merged_vowels.append(letter + next_letter)
                 i += 1
 
@@ -120,24 +142,28 @@ class Word:
 
     def __get_tonic_syllable(self) -> str:
         """
-        Returns tonic syllable string.
+        Returns:
+            str: tonic syllable.
         """
         return self.syllables[self.__get_tonic_syllable_by_index()]
 
     def __get_tonic_syllable_by_index(self) -> int:
         """
-        Returns tonic syllable index.
+        Determine the index of the tonic syllable in the syllable list.
+
+        Returns:
+            int: Index of the tonic syllable.
         """
         syllables_len = len(self.syllables)
 
         last_syllable = self.syllables[syllables_len -
                                        1] if syllables_len - 1 >= 0 else ""
-        last_letter_in_last_syllable = last_syllable[len(
+        last_letter = last_syllable[len(
             last_syllable) - 1] if len(last_syllable) - 1 >= 0 else ""
 
         if (
-            last_letter_in_last_syllable in self.__case_consonants
-            and last_letter_in_last_syllable in self.__vowels
+            last_letter in self.__case_consonants
+            or last_letter in self.__vowels
         ):
             tonic_index = syllables_len - 2 if syllables_len - 2 >= 0 else -1
         else:
@@ -152,27 +178,38 @@ class Word:
 
     def __get_vowels(self) -> list:
         """
-        Returns all vowels of the word.
+        Returns:
+             list: List with all vowels of the word.
         """
         return [letter for letter in self.__word if has_vowels(letter)]
 
     def __get_consonants(self) -> list:
         """
-        Returns all consonants of the word.
+        Returns:
+            list: List with all consonants of the word.
         """
         return [letter for letter in self.__word if has_consonants(letter)]
 
-    def __get_type(self) -> int:
+    def __get_type(self) -> str | None:
         """
-        Returns a word type based on its grammatical classification.
+        Returns the grammatical classification of the given word.
 
-        The values tha may be return are:
-        -> 1 = Oxytone
-        -> 2 = Paroxytone
-        -> 3 = Proparoxytone
-        -> 4 = Superproparoxytone
+        Returns:
+            str: Classification in Spanish grammar.
+            None: If it does not correspond to any classification.
         """
-        return (self.__get_tonic_syllable_by_index() - len(self.syllables)) * -1
+        type_by_number = (self.__get_tonic_syllable_by_index() - len(self.syllables)) * -1
+
+        if type_by_number == 1:
+            return "oxitona"
+        elif type_by_number == 2:
+            return "paroxitona"
+        elif type_by_number == 3:
+            return "proparoxitona"
+        elif type_by_number == 4:
+            return "superproparoxitona"
+        else:
+            return None
 
     def __str__(self):
-        return self.__word
+        return f"<{self.__word} with {len(self.syllables)} syllables and {self.type} type.>"
