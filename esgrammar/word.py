@@ -4,8 +4,8 @@ from .utils import has_consonants, has_vowels, is_consonant_group
 class Word:
     __vowels = "aeiouAEIOU"
     __accented_vowels = "áéíóuÁÉÍÓÚ"
-    __closed_vowels = "iuíuIUÍÚ"
-    __open_vowels = "aeoáéóAEOÁÉÓ"
+    __closed_vowels = "iuIU"
+    __open_vowels = "aeoAEO"
     __umlauts = "üÜ"
     __case_consonants = "nsNS"
 
@@ -49,11 +49,9 @@ class Word:
             elif ((
                 letter in self.__open_vowels
                 and next_letter in self.__closed_vowels
-                and not letter in self.__accented_vowels
             ) or (
                 letter in self.__closed_vowels
                 and next_letter in self.__open_vowels
-                and not letter in self.__accented_vowels
             ) or (
                 letter in self.__umlauts
                 and letter in self.__vowels
