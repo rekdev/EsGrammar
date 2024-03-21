@@ -164,7 +164,7 @@ class Word:
         """
         return [letter for letter in self.__word if has_consonants(letter)]
 
-    def __get_type(self):
+    def __get_type(self) -> int:
         """
         Returns a word type based on its grammatical classification.
 
