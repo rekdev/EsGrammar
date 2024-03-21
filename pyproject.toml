@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "esgrammar"
+version = "0.0.1"
+authors = [{name = 'Rek Dev', email = 'angel_cfz@proton.me'}]
+description = "Small library for checking the spelling and grammar things of words in the Spanish language."
+license = {file = 'LICENSE'}
+
+[tool.setuptools]
+packages = ["esgrammar"]
+
+[tool.pytest.ini_options]
+minversion = "7.4.3"
+addopts = "-ra -q"
+testpaths = ["tests"]
