@@ -17,12 +17,12 @@ def analyse(words: list) -> list:
     Returns:
         list: List with grammatical information for each word in the list
     """
-    words_analyzed = []
+    words_analysed = []
 
     for word_item in words:
         wd = Word(word_item)
 
-        words_analyzed.append({
+        words_analysed.append({
             "word": wd.value,
             "syllables": wd.syllables,
             "tonic_syllable": wd.tonic_syllable,
@@ -32,4 +32,4 @@ def analyse(words: list) -> list:
             "type": wd.type
         })
 
-    return words_analyzed
+    return words_analysed

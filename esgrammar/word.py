@@ -143,7 +143,7 @@ class Word:
     def __get_tonic_syllable(self) -> str:
         """
         Returns:
-            str: tonic syllable.
+            str: Tonic syllable.
         """
         return self.syllables[self.__get_tonic_syllable_by_index()]
 
