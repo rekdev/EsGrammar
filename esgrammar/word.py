@@ -20,7 +20,7 @@ class Word:
     __open_vowels = "aeoAEO"
     __closed_vowels_accented = "iuIUíúÍÚ"
     __open_vowels_accented = "aeoAEOáéóÁÉÓ"
-    __umlauts = "Ü"
+    __umlauts = "üÜ"
     __case_consonants = "nsNS"
 
     def __init__(self, x: str):
@@ -69,11 +69,11 @@ class Word:
 
             # Checks if slice is a diphthong or umlaut case.
             elif ((
-                letter in self.__open_vowels
+                letter in self.__open_vowels_accented
                 and next_letter in self.__closed_vowels
             ) or (
                 letter in self.__closed_vowels
-                and next_letter in self.__open_vowels
+                and next_letter in self.__open_vowels_accented
             ) or (
                 letter in self.__umlauts
                 and next_letter in self.__vowels
