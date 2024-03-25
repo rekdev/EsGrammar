@@ -144,12 +144,39 @@
     "type": "superproparoxitona"
   },
   {
-    "word": "Enseñándoselas",
-    "syllables": ["En", "se", "ñán", "do", "se", "las"],
-    "tonic_syllable": "ñán",
-    "tonic_syllable_index": 2,
-    "vowels": ["E", "e", "á", "o", "e", "a"],
-    "consonants": ["n", "s", "ñ", "n", "d", "s", "l", "s"],
-    "type": "superproparoxitona"
+    "word": "Más",
+    "syllables": ["Más"],
+    "tonic_syllable": "Más",
+    "tonic_syllable_index": 0,
+    "vowels": ["á"],
+    "consonants": ["M", "s"],
+    "type": "monosilaba"
+  },
+  {
+    "word": "Gas",
+    "syllables": ["Gas"],
+    "tonic_syllable": "Gas",
+    "tonic_syllable_index": 0,
+    "vowels": ["a"],
+    "consonants": ["G", "s"],
+    "type": "monosilaba"
+  },
+  {
+    "word": "Seis",
+    "syllables": ["Seis"],
+    "tonic_syllable": "Seis",
+    "tonic_syllable_index": 0,
+    "vowels": ["e", "i"],
+    "consonants": ["S", "s"],
+    "type": "monosilaba"
+  },
+  {
+    "word": "Jazz",
+    "syllables": ["Jazz"],
+    "tonic_syllable": "Jazz",
+    "tonic_syllable_index": 0,
+    "vowels": ["a"],
+    "consonants": ["J", "z", "z"],
+    "type": "monosilaba"
   }
 ]

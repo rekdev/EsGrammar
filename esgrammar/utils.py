@@ -9,10 +9,10 @@ def has_vowels(x: str) -> bool:
         bool: Value that indicates if the slice contains vowels.
     """
     value = False
-    vowels = "aeiouAEIOUáéíóúÁÉÍÓÚ"
+    vowels = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ú"]
 
     for letter in x:
-        if letter in vowels:
+        if letter.lower() in vowels:
             value = True
             break
 
@@ -29,7 +29,16 @@ def has_consonants(x: str) -> bool:
     Returns:
         bool: Value that indicates if the slice contains consonants.
     """
-    return not has_vowels(x)
+    value = False
+    consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
+                  "ñ", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+
+    for letter in x:
+        if letter.lower() in consonants:
+            value = True
+            break
+
+    return value
 
 
 def is_consonant_group(x: str) -> bool:

@@ -165,9 +165,9 @@ class Word:
             last_letter in self.__case_consonants
             or last_letter in self.__vowels
         ):
-            tonic_index = syllables_len - 2 if syllables_len - 2 >= 0 else -1
+            tonic_index = syllables_len - 2 if syllables_len - 2 >= 0 else 0
         else:
-            tonic_index = syllables_len - 1 if syllables_len - 1 >= 0 else -1
+            tonic_index = syllables_len - 1 if syllables_len - 1 >= 0 else 0
 
         for i, syllable in enumerate(self.syllables):
             for letter in syllable:
@@ -198,18 +198,21 @@ class Word:
             str: Classification in Spanish grammar.
             None: If it does not correspond to any classification.
         """
+        word_type = None
         type_by_number = (self.__get_tonic_syllable_by_index() - len(self.syllables)) * -1
 
-        if type_by_number == 1:
-            return "oxitona"
+        if len(self.syllables) == 1:
+            word_type = "monosilaba"
+        elif type_by_number == 1:
+            word_type = "oxitona"
         elif type_by_number == 2:
-            return "paroxitona"
+            word_type = "paroxitona"
         elif type_by_number == 3:
-            return "proparoxitona"
+            word_type = "proparoxitona"
         elif type_by_number > 3:
-            return "superproparoxitona"
-        else:
-            return None
+            word_type = "superproparoxitona"
+
+        return word_type
 
     def __str__(self):
         return f"<{self.__word} with {len(self.syllables)} syllables and {self.type} type.>"
