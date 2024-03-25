@@ -1,11 +1,155 @@
 [
   {
-    "word": "",
-    "syllables": [],
-    "tonic_syllable": "",
-    "tonic_syllable_index": -1,
-    "vowels": [],
-    "consonants": [],
-    "type": ""
+    "word": "Administración",
+    "syllables": ["Ad", "mi", "nis", "tra", "ción"],
+    "tonic_syllable": "ción",
+    "tonic_syllable_index": 4,
+    "vowels": ["A", "i", "i", "a", "i", "ó"],
+    "consonants": ["d", "m", "n", "s", "t", "r", "c", "n"],
+    "type": "oxitona"
+  },
+  {
+    "word": "Elegí",
+    "syllables": ["E", "le", "gí"],
+    "tonic_syllable": "gí",
+    "tonic_syllable_index": 2,
+    "vowels": ["E", "e", "í"],
+    "consonants": ["l", "g"],
+    "type": "oxitona"
+  },
+  {
+    "word": "Raíz",
+    "syllables": ["Ra", "íz"],
+    "tonic_syllable": "íz",
+    "tonic_syllable_index": 1,
+    "vowels": ["a", "í"],
+    "consonants": ["R", "z"],
+    "type": "oxitona"
+  },
+  {
+    "word": "Estrés",
+    "syllables": ["Es", "trés"],
+    "tonic_syllable": "trés",
+    "tonic_syllable_index": 1,
+    "vowels": ["E", "é"],
+    "consonants": ["s", "t", "r", "s"],
+    "type": "oxitona"
+  },
+  {
+    "word": "Rectangular",
+    "syllables": ["Rec", "tan", "gu", "lar"],
+    "tonic_syllable": "lar",
+    "tonic_syllable_index": 3,
+    "vowels": ["e", "a", "u", "a"],
+    "consonants": ["R", "c", "t", "n", "g", "l", "r"],
+    "type": "oxitona"
+  },
+  {
+    "word": "Energía",
+    "syllables": ["E", "ner", "gí", "a"],
+    "tonic_syllable": "gí",
+    "tonic_syllable_index": 2,
+    "vowels": ["E", "e", "í", "a"],
+    "consonants": ["n", "r", "g"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Egoísta",
+    "syllables": ["E", "go", "ís", "ta"],
+    "tonic_syllable": "ís",
+    "tonic_syllable_index": 2,
+    "vowels": ["E", "o", "í", "a"],
+    "consonants": ["g", "s", "t"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Cuanto",
+    "syllables": ["Cuan", "to"],
+    "tonic_syllable": "Cuan",
+    "tonic_syllable_index": 0,
+    "vowels": ["u", "a", "o"],
+    "consonants": ["C", "n", "t"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Agua",
+    "syllables": ["A", "gua"],
+    "tonic_syllable": "A",
+    "tonic_syllable_index": 0,
+    "vowels": ["A", "u", "a"],
+    "consonants": ["g"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Estrellas",
+    "syllables": ["Es", "tre", "llas"],
+    "tonic_syllable": "tre",
+    "tonic_syllable_index": 1,
+    "vowels": ["E", "e", "a"],
+    "consonants": ["s", "t", "r", "l", "l", "s"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Acuarela",
+    "syllables": ["A", "cua", "re", "la"],
+    "tonic_syllable": "re",
+    "tonic_syllable_index": 2,
+    "vowels": ["A", "u", "a", "e", "a"],
+    "consonants": ["c", "r", "l"],
+    "type": "paroxitona"
+  },
+  {
+    "word": "Escuálido",
+    "syllables": ["Es", "cuá", "li", "do"],
+    "tonic_syllable": "cuá",
+    "tonic_syllable_index": 1,
+    "vowels": ["E", "u", "á", "i", "o"],
+    "consonants": ["s", "c", "l", "d"],
+    "type": "proparoxitona"
+  },
+  {
+    "word": "Relámpago",
+    "syllables": ["Re", "lám", "pa", "go"],
+    "tonic_syllable": "lám",
+    "tonic_syllable_index": 1,
+    "vowels": ["e", "á", "a", "o"],
+    "consonants": ["R", "l", "m", "p", "g"],
+    "type": "proparoxitona"
+  },
+  {
+    "word": "Heterogéneo",
+    "syllables": ["He", "te", "ro", "gé", "ne", "o"],
+    "tonic_syllable": "gé",
+    "tonic_syllable_index": 3,
+    "vowels": ["e", "e", "o", "é", "e", "o"],
+    "consonants": ["H", "t", "r", "g", "n"],
+    "type": "proparoxitona"
+  },
+  {
+    "word": "Físicamente",
+    "syllables": ["Fí", "si", "ca", "men", "te"],
+    "tonic_syllable": "Fí",
+    "tonic_syllable_index": 0,
+    "vowels": ["í", "i", "a", "e", "e"],
+    "consonants": ["F", "s", "c", "m", "n", "t"],
+    "type": "superproparoxitona"
+  },
+  {
+    "word": "Léeselo",
+    "syllables": ["Lé", "e", "se", "lo"],
+    "tonic_syllable": "Lé",
+    "tonic_syllable_index": 0,
+    "vowels": ["é", "e", "e", "o"],
+    "consonants": ["L", "s", "l"],
+    "type": "superproparoxitona"
+  },
+  {
+    "word": "Enseñándoselas",
+    "syllables": ["En", "se", "ñán", "do", "se", "las"],
+    "tonic_syllable": "ñán",
+    "tonic_syllable_index": 2,
+    "vowels": ["E", "e", "á", "o", "e", "a"],
+    "consonants": ["n", "s", "ñ", "n", "d", "s", "l", "s"],
+    "type": "superproparoxitona"
   }
 ]

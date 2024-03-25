@@ -14,20 +14,23 @@ class Word:
         type (str | None): Grammatical classification based on Spanish accentuation rules.
         value (str): Contains public access word attribute of the class.
     """
-    __vowels = "aeiouAEIOU"
-    __accented_vowels = "áéíóúÁÉÍÓÚ"
-    __closed_vowels = "iuIU"
-    __open_vowels = "aeoAEO"
-    __closed_vowels_accented = "iuIUíúÍÚ"
-    __open_vowels_accented = "aeoAEOáéóÁÉÓ"
-    __umlauts = "üÜ"
-    __case_consonants = "nsNS"
+    __vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+    __accented_vowels = ["á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú"]
+    __closed_vowels = ["i", "u", "I", "U"]
+    __open_vowels = ["a", "e", "o", "A", "E", "O"]
+    __closed_vowels_accented = ["i", "u", "I", "U", "í", "ú", "Í", "Ú"]
+    __open_vowels_accented = ["a", "e", "o", "A", "E", "O", "á", "é", "ó", "Á", "É", "Ó"]
+    __umlauts = ["ü", "Ü"]
+    __case_consonants = ["n", "s", "N", "S"]
 
     def __init__(self, x: str):
         """
         Args:
             x (str): Any word in spanish language.
         """
+        if x == "":
+            raise ValueError("x should not be an empty string.")
+
         self.__word = x
         self.syllables = self.__get_syllables()
         self.tonic_syllable = self.__get_tonic_syllable()
@@ -155,11 +158,8 @@ class Word:
             int: Index of the tonic syllable.
         """
         syllables_len = len(self.syllables)
-
-        last_syllable = self.syllables[syllables_len -
-                                       1] if syllables_len - 1 >= 0 else ""
-        last_letter = last_syllable[len(
-            last_syllable) - 1] if len(last_syllable) - 1 >= 0 else ""
+        word_len = len(self.__word)
+        last_letter = self.__word[word_len - 1] if word_len - 1 >= 0 else ""
 
         if (
             last_letter in self.__case_consonants
@@ -206,7 +206,7 @@ class Word:
             return "paroxitona"
         elif type_by_number == 3:
             return "proparoxitona"
-        elif type_by_number == 4:
+        elif type_by_number > 3:
             return "superproparoxitona"
         else:
             return None
