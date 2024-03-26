@@ -136,7 +136,7 @@ class Word:
                 syllable != ""
                 and not (len(syllable) == 1
                          and has_consonants(syllable))
-                or syllable == "y"
+                or syllable in "yY"
             ):
                 syllables.append(syllable)
 
