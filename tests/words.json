@@ -178,5 +178,14 @@
     "vowels": ["a"],
     "consonants": ["J", "z", "z"],
     "type": "monosilaba"
+  },
+  {
+    "word": "y",
+    "syllables": ["y"],
+    "tonic_syllable": "y",
+    "tonic_syllable_index": 0,
+    "vowels": [],
+    "consonants": ["y"],
+    "type": "monosilaba"
   }
 ]
