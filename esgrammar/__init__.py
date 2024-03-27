@@ -4,10 +4,11 @@ EsGrammar
 =========
 Small library for checking the spelling and grammar things of words in the Spanish language.
 """
+import regex
 from .word import Word
 
 
-def analyse(words: list) -> list:
+def analyse_word_list(words: list) -> list:
     """
     This function takes a list of words as input and returns their corresponding grammatical information.
 
@@ -15,7 +16,7 @@ def analyse(words: list) -> list:
         words (list): List of words to be analysed.
 
     Returns:
-        list: List with grammatical information for each word in the list
+        list: List of grammatical information for each word in the list
     """
     words_analysed = []
 
@@ -31,5 +32,22 @@ def analyse(words: list) -> list:
             "consonants": wd.consonants,
             "type": wd.type
         })
+
+    return words_analysed
+
+
+def analyse_text(text: str) -> list:
+    """
+    This function analyses individual words in a given text and returns their corresponding grammatical data.
+
+    Args:
+        text (str): The text that will be analysed.
+
+    Returns:
+        list: List of grammatical information for each word in the text.
+    """
+    pattern = r"[\p{P}\p{S}]|\n|\\."
+    word_list = regex.sub(pattern, "", text).split()
+    words_analysed = analyse_word_list(word_list)
 
     return words_analysed

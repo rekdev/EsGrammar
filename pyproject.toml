@@ -8,6 +8,7 @@ version = "0.0.1"
 authors = [{name = 'Rek Dev', email = 'angel_cfz@proton.me'}]
 description = "Small library for checking the spelling and grammar things of words in the Spanish language."
 license = {file = 'LICENSE'}
+dependencies = ["regex > 2023.12.25"]
 
 [tool.setuptools]
 packages = ["esgrammar"]
