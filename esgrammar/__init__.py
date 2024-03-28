@@ -8,19 +8,19 @@ import regex
 from .word import Word
 
 
-def analyse_word_list(words: list) -> list:
+def analyse_word_list(word_list: list) -> list:
     """
     This function takes a list of words as input and returns their corresponding grammatical information.
 
     Args:
-        words (list): List of words to be analysed.
+        word_list (list): List of words to be analysed.
 
     Returns:
         list: List of grammatical information for each word in the list
     """
     words_analysed = []
 
-    for word_item in words:
+    for word_item in word_list:
         wd = Word(word_item)
 
         words_analysed.append({
